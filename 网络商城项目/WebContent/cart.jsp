@@ -82,7 +82,7 @@
 										￥${entry.value.product.shop_price }
 									</td>
 									<td width="10%">
-										${entry.value.proNum }
+										${entry.value.productNum }
 									</td>
 									<td width="15%">
 										<span class="subtotal">￥${entry.value.subTotal }</span>
