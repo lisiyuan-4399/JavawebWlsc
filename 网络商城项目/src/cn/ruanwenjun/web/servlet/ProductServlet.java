@@ -61,11 +61,11 @@ public class ProductServlet extends BasicServlet {
 				String str = cookie.getValue();
 				String[] split = str.split("-");
 				for(int i=0;i<split.length;i++) {
-					Product hisPro = service.findProductByPid(split[i]);
-					historyProductList.add(hisPro);	
 					if(i==5) {
 						break;
 					}
+					Product hisPro = service.findProductByPid(split[i]);
+					historyProductList.add(hisPro);
 				}
 			}
 		}
