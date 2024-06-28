@@ -224,7 +224,7 @@ color: red;
 					<div class="form-group">
 						<label for="date" class="col-sm-2 control-label">验证码</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" name="varifyCode" id="varifyCode">
+							<input type="text" class="form-control" placeholder="请输入验证码" name="varifyCode" id="varifyCode">
 
 						</div>
 						<div class="col-sm-2">

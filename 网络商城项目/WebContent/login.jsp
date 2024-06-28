@@ -133,12 +133,12 @@ font {
 						</div>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<input type="text" class="form-control" id="checkCode" name="checkCode"
 									placeholder="请输入验证码">
 							</div>
 							<div class="col-sm-3">
-								<img src="${pageContext.request.contextPath }/checkImg" onclick="changeCheckImg(this)" />
+								<img style="width: 180px" src="${pageContext.request.contextPath }/checkImg" onclick="changeCheckImg(this)" />
 							</div>
 						</div>
 						<div class="form-group">
