@@ -98,7 +98,7 @@
     <filter-class>cn.ruanwenjun.filter.AuthenticationFilter</filter-class>
     <init-param>
       <param-name>excludedUrls</param-name>
-      <param-value>/checkImg,/user,/login,/register,*.js,*.png,*.jpg,*.woff2</param-value>
+      <param-value>/checkImg,/user,/login,/register,.js,.css,.png,.jpg,.woff2</param-value>
     </init-param>
   </filter>
   <filter-mapping>
