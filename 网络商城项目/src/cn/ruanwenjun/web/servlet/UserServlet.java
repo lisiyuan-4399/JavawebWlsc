@@ -113,4 +113,22 @@ public class UserServlet extends BasicServlet {
 		Boolean isRight = checkCode.equalsIgnoreCase((String) request.getSession().getAttribute("checkcode_session"));
 		response.getWriter().write("{\"isRight\":" + isRight + "}");
 	}
+
+	/**
+	 * 检查登录状态，如果没登录，那么直接跳转到登录页面，否则跳转到该跳转的页面（后面使用改为过滤器）
+	 * @param request
+	 * @param response
+	 */
+	public void checkLoginStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// 获取登录用户信息
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null){
+			String pageName = request.getParameter("pageName");
+			// 继续跳转
+			response.sendRedirect(request.getContextPath() + "/"+pageName);
+		}else{
+			// 跳转到登录页面
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
+		}
+	}
 }

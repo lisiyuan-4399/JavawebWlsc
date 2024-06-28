@@ -41,7 +41,7 @@
 				<li><a href="#">${user.username }</a></li>
 				<li><a href="${pageContext.request.contextPath }/user?method=quitUser">退出</a></li>
 			</c:if>
-			<li><a href="cart.jsp">购物车</a></li>
+			<li><a href="${pageContext.request.contextPath }/user?method=checkLoginStatus&pageName=cart.jsp">购物车</a></li>
 			<li><a href="${pageContext.request.contextPath }/order?method=myOrder">我的订单</a></li>
 		</ol>
 	</div>
