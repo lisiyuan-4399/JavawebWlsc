@@ -32,13 +32,21 @@ body {
 	<!-- 引入header.jsp -->
 	<jsp:include page="/header.jsp"></jsp:include>
 
+	<c:if test="${empty orderList }">
+		<div style=" background-color: #F7F7F7; width: 100% ;height: 400px ;">
+			<div style="width:400px; height: 273px; background-image:url('${pageContext.request.contextPath}/images/cart-empty.png');">
+
+			</div>
+		</div>
+	</c:if>
 	<div class="container">
-		<div class="row">
-			<div style="margin: 0 auto; margin-top: 10px; width: 950px;">
-				<strong>我的订单</strong>
-				<table class="table table-bordered">
-					<c:forEach items="${ orderList}" var="order">
-						<tbody>
+		<c:if test="${not empty orderList}">
+			<div class="row">
+				<div style="margin: 0 auto; margin-top: 10px; width: 950px;">
+					<strong>我的订单</strong>
+					<table class="table table-bordered">
+						<c:forEach items="${ orderList}" var="order">
+							<tbody>
 							<tr class="success">
 								<th colspan="3">订单编号:${order.oid }</th>
 								<th colspan="2">下单时间:${order.ordertime }</th>
@@ -53,8 +61,8 @@ body {
 							<c:forEach items="${order.list }" var="orderItem">
 								<tr class="active">
 									<td width="60" width="40%"><input type="hidden" name="id"
-										value="22"> <img src="${pageContext.request.contextPath }/${orderItem.product.pimage}" width="70"
-										height="60"></td>
+																	  value="22"> <img src="${pageContext.request.contextPath }/${orderItem.product.pimage}" width="70"
+																					   height="60"></td>
 									<td width="30%"><a target="_blank"> ${orderItem.product.pname}</a></td>
 									<td width="20%">￥${orderItem.product.shop_price}</td>
 									<td width="10%">${orderItem.productNum}</td>
@@ -71,32 +79,32 @@ body {
 									</c:if>
 								</th>
 							</tr>
-							
-						</tbody>
-					</c:forEach>
-		
-				</table>
-			</div>
-		</div>
-		<div style="text-align: center;">
-			<ul class="pagination">
-				<li class="disabled"><a href="#" aria-label="Previous"><span
-						aria-hidden="true">&laquo;</span></a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">6</a></li>
-				<li><a href="#">7</a></li>
-				<li><a href="#">8</a></li>
-				<li><a href="#">9</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
-		</div>
-	</div>
 
+							</tbody>
+						</c:forEach>
+
+					</table>
+				</div>
+			</div>
+			<div style="text-align: center;">
+				<ul class="pagination">
+					<li class="disabled"><a href="#" aria-label="Previous"><span
+							aria-hidden="true">&laquo;</span></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</div>
+		</c:if>
+	</div>
 	<!-- 引入footer.jsp -->
 	<jsp:include page="/footer.jsp"></jsp:include>
 	
