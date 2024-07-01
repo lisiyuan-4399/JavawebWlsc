@@ -87,7 +87,7 @@ body {
 				</div>
 			</div>
 			<!------------------------------分页---------------------------------->
-			<jsp:include page="/pagination.jsp" />
+<%--			<jsp:include page="/pagination.jsp" />--%>
 			<!-- 分页结束 -->
 		</c:if>
 	</div>
