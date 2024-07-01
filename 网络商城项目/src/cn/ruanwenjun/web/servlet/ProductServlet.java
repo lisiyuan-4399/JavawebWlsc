@@ -15,6 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.ruanwenjun.utils.PaginationUtil;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.google.gson.Gson;
@@ -33,11 +34,11 @@ public class ProductServlet extends BasicServlet {
 	public void product_list(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String cid = request.getParameter("cid");
 		ProductService service = new ProductService();
-		PageBean pageBean = new PageBean();
 		int currentPage =1;               //当前页
 		if(request.getParameter("currentPage")!=null) {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
+
 		int currentCount =12;             //每页显示的商品数目 
 		int totalCount = service.findAllProductByCid(cid);       //当前类别的总商品数目
 		int index = 0 ;          //第一个的索引
@@ -47,11 +48,8 @@ public class ProductServlet extends BasicServlet {
 		List<Product> currentProductList = service.findPageBeanProductList(index,currentCount,cid);
 		int totalPage = (int) Math.ceil((1.0*totalCount/currentCount));   //总页数
 		/******************封装pageBean*********************************************/
-		pageBean.setCurrentPage(currentPage);
-		pageBean.setCurrentCount(currentCount);
-		pageBean.setTotalPage(totalPage);
-		pageBean.setList(currentProductList);
-		pageBean.setTotalCount(totalCount);
+		PaginationUtil paginationUtil = new PaginationUtil() ;
+		PageBean pageBean = paginationUtil.getPageBean(currentCount,currentPage,totalCount,totalPage,currentProductList) ;
 		
 		/***********************从Cookie中获得浏览历史******************************/	
 		Cookie[] cookies = request.getCookies();

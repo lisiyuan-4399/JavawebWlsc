@@ -44,7 +44,7 @@ public class OrderDao {
 	public List<Map<String, Object>> findAllOrderItemByOid(String oid) throws SQLException {
 		//要查询的有pimage,pname,shop_price,productNum,subTotal
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select p.pimage,p.pname,p.shop_price,o.productNum,o.subTotal from product p,orderitem o where o.oid=? and o.pid=p.pid ";
+		String sql = "select p.pimage,p.pname,p.shop_price,o.subTotal from product p,orderitem o where o.oid=? and o.pid=p.pid ";
 		List<Map<String, Object>> maplist = runner.query(sql, new MapListHandler(), oid);
 		return maplist;
 	}

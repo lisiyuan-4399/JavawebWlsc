@@ -38,4 +38,14 @@ public class PageBean<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
+
+	public PageBean() {}
+
+	public PageBean(int currentCount,int currentPage, int totalCount,int totalPage, List<T> list) {
+		this.currentPage = currentPage;
+		this.currentCount = currentCount;
+		this.totalPage = totalPage;
+		this.totalCount = totalCount;
+		this.list = list;
+	}
 }

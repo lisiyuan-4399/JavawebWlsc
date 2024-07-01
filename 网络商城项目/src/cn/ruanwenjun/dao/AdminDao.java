@@ -23,7 +23,7 @@ public class AdminDao {
 
 	public List<Map<String, Object>> findOrderInfoByOid(String oid) throws SQLException {
 		QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
-		String sql = "select p.pimage,p.pname,p.shop_price,o.productNum,o.subTotal from orderitem o,product p where o.pid=p.pid and o.oid =?";
+		String sql = "select p.pimage,p.pname,p.shop_price,o.subTotal from orderitem o,product p where o.pid=p.pid and o.oid =?";
 		return runner.query(sql, new MapListHandler(), oid);
 	}
 
